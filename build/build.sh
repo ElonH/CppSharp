@@ -2,7 +2,7 @@
 set -e
 builddir=$(cd "$(dirname "$0")"; pwd)
 platform=x64
-vs=vs2022
+vs=vs2019
 configuration=Release
 build_only=false
 ci=false
@@ -47,7 +47,7 @@ build()
 
 generate_config()
 {
-  "$builddir/premake.sh" --file="$builddir/premake5.lua" $vs --os=$os --arch=$platform --configuration=$configuration --target-framework=$target_framework --config_only
+  "$builddir/premake.sh" --file="$builddir/premake5.lua" $vs --os=$os --arch=$platform --configuration=$configuration --target-framework=$target_framework --config_only --disable-tests
 }
 
 generate()
@@ -58,7 +58,7 @@ generate()
     "$builddir/premake.sh" --file="$builddir/premake5.lua" gmake2 --os=$os --arch=$platform --configuration=$configuration --target-framework=$target_framework "$@"
   fi
 
-  "$builddir/premake.sh" --file="$builddir/premake5.lua" $vs --os=$os --arch=$platform --configuration=$configuration --target-framework=$target_framework
+  "$builddir/premake.sh" --file="$builddir/premake5.lua" $vs --os=$os --arch=$platform --configuration=$configuration --target-framework=$target_framework --disable-tests
 }
 
 restore()

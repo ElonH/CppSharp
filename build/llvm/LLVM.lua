@@ -240,6 +240,8 @@ function cmake(gen, conf, builddir, options)
 
 	if os.ishost("windows") then
 		options = options .. " -Thost=x64"
+		.. ' -DCMAKE_CXX_FLAGS="/utf-8"'
+		.. ' -DCMAKE_C_FLAGS="/utf-8"'
 	end
 
 	local cmd = cmake .. " -G " .. '"' .. gen .. '"'
