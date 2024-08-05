@@ -47,11 +47,13 @@ jobs:
         shell: bash
         run: |
           build/build.sh generate -platform $PLATFORM
+          mkdir build/llvm || true
         # build/build.sh download_llvm -platform $PLATFORM
 
-      - uses: actions/download-artifact@v3
+      - name: wget
+        uses: wei/wget@v1
         with:
-          name: llvm
+          args: -O llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z -P ./build/llvm/ https://github.com/ElonH/CppSharp/releases/download/CppSharp/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z
 
       - name: Restore
         shell: bash
