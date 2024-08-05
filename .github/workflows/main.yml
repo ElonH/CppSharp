@@ -46,9 +46,9 @@ jobs:
       - name: Setup
         shell: bash
         run: |
-          curl -L -o build/llvm/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z https://github.com/ElonH/CppSharp/releases/download/CppSharp/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z
           build/build.sh generate -platform $PLATFORM
           build/build.sh download_llvm -platform $PLATFORM
+        #curl -L -o build/llvm/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z https://github.com/ElonH/CppSharp/releases/download/CppSharp/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z
 
       - name: Restore
         shell: bash
