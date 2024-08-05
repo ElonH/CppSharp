@@ -3017,8 +3017,8 @@ namespace CppSharp
                 internal static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
             }
 
-            private SourceLocation.__Internal __instance;
-            internal ref SourceLocation.__Internal __Instance => ref __instance;
+            internal SourceLocation.__Internal __Instance;
+            //internal ref SourceLocation.__Internal __Instance => ref __instance;
 
             internal static SourceLocation __CreateInstance(__IntPtr native, bool skipVTables = false)
             {
@@ -3033,26 +3033,31 @@ namespace CppSharp
             private SourceLocation(__Internal native, bool skipVTables = false)
                 : this()
             {
-                __instance = native;
+                __Instance = native;
             }
 
             private SourceLocation(void* native, bool skipVTables = false) : this()
             {
-                __instance = *(global::CppSharp.Parser.SourceLocation.__Internal*) native;
+                __Instance = *(global::CppSharp.Parser.SourceLocation.__Internal*) native;
             }
 
-            public SourceLocation()
-            {
-                fixed (__Internal* __instancePtr = &__instance)
-                {
-                    __Internal.ctor(new __IntPtr(__instancePtr));
-                }
-            }
+            //public SourceLocation()
+            //{
+            //    fixed (__Internal* __instancePtr = &__instance)
+            //    {
+            //        __Internal.ctor(new __IntPtr(__instancePtr));
+            //    }
+            //}
 
-            public SourceLocation(uint ID)
+            public SourceLocation(uint ID = uint.MaxValue)
                 : this()
             {
-                fixed (__Internal* __instancePtr = &__instance)
+                if(ID == uint.MaxValue)
+                    fixed (__Internal* __instancePtr = &__Instance)
+                    {
+                        __Internal.ctor(new __IntPtr(__instancePtr));
+                    }
+                fixed (__Internal* __instancePtr = &__Instance)
                 {
                     __Internal.ctor(new __IntPtr(__instancePtr), ID);
                 }
@@ -3063,7 +3068,7 @@ namespace CppSharp
             {
                 var ____arg0 = _0.__Instance;
                 var __arg0 = new __IntPtr(&____arg0);
-                fixed (__Internal* __instancePtr = &__instance)
+                fixed (__Internal* __instancePtr = &__Instance)
                 {
                     __Internal.cctor(new __IntPtr(__instancePtr), __arg0);
                 }
@@ -3078,12 +3083,12 @@ namespace CppSharp
             {
                 get
                 {
-                    return __instance.ID;
+                    return __Instance.ID;
                 }
 
                 set
                 {
-                    __instance.ID = value;
+                    __Instance.ID = value;
                 }
             }
         }
