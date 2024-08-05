@@ -47,7 +47,11 @@ jobs:
         shell: bash
         run: |
           build/build.sh generate -platform $PLATFORM
-          build/build.sh download_llvm -platform $PLATFORM
+        # build/build.sh download_llvm -platform $PLATFORM
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: llvm
 
       - name: Restore
         shell: bash
