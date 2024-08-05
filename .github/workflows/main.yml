@@ -46,9 +46,7 @@ jobs:
       - name: Setup
         shell: bash
         run: |
-          pip install wget
-          mkdir build/llvm || true
-          wget -O llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z -P ./build/llvm/ https://github.com/ElonH/CppSharp/releases/download/CppSharp/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z
+          curl -L -o build/llvm/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z https://github.com/ElonH/CppSharp/releases/download/CppSharp/llvm-6eb36a-windows-vs2019-x64-RelWithDebInfo.7z
           build/build.sh generate -platform $PLATFORM
           build/build.sh download_llvm -platform $PLATFORM
 
