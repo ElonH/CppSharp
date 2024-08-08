@@ -1,4 +1,4 @@
-﻿using System;
+a﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace CppSharp.Generators
             Write($@"
 <Project Sdk=""Microsoft.NET.Sdk"">
   <PropertyGroup>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFramework>net46</TargetFramework>
     <PlatformTarget>{(Context.TargetInfo.PointerWidth == 64 ? "x64" : "x86")}</PlatformTarget>
     <OutputPath>{Options.OutputDir}</OutputPath>
     <DocumentationFile>{module.LibraryName}.xml</DocumentationFile>
