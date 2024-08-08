@@ -4,6 +4,7 @@
   <PropertyGroup>
     <RootDir>$(MSBuildThisFileDirectory)</RootDir>
     <Platforms>x86;x64</Platforms>
+    <TargetFramework>net45</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
